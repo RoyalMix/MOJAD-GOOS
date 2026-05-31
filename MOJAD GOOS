@@ -1,0 +1,68 @@
+MOJAD-GOOS/
+│
+├── README.md
+├── LICENSE
+├── package.json
+├── .gitignore
+├── next.config.js
+├── tsconfig.json
+│
+├── apps/
+│   ├── web/                     # Main Web App (Next.js)
+│   ├── mobile/                 # React Native / Expo (future)
+│   ├── admin/                  # Admin dashboard (Gov, AI control)
+│
+├── packages/
+│   ├── ui/                     # UI components (buttons, cards, layouts)
+│   ├── sdk/                    # MOJAD SDK (your earlier file)
+│   ├── api/                    # API layer (backend calls)
+│   ├── ai-core/               # AI system logic
+│   ├── pi-integration/        # Pi Network + wallet layer
+│   ├── auth/                  # Pi login + MOJAD ID
+│   ├── database/              # DB models + schemas
+│
+├── modules/
+│   ├── jobnet/
+│   ├── businessnet/
+│   ├── investnet/
+│   ├── servicenet/
+│   ├── beautynet/
+│   ├── homenet/
+│   ├── transportnet/
+│   ├── healthnet/
+│   ├── edunet/
+│   ├── agrinet/
+│   ├── tourismnet/
+│   ├── aicore/
+│
+├── core/
+│   ├── opportunity-engine/
+│   ├── trust-system/
+│   ├── referral-engine/
+│   ├── payment-engine/
+│   ├── escrow-engine/
+│   ├── notification-engine/
+│
+├── services/
+│   ├── ai-service/
+│   ├── pi-wallet-service/
+│   ├── auth-service/
+│   ├── job-matching-service/
+│   ├── investment-service/
+│
+├── ui-app/
+│   ├── components/
+│   ├── pages/
+│   ├── layouts/
+│   ├── styles/
+│   ├── hooks/
+│
+├── public/
+│
+└── docs/
+    ├── ARCHITECTURE.md
+    ├── MODULES.md
+    ├── SDK.md
+    ├── SECURITY.md
+    ├── API.md
+    ├── PI-INTEGRATION.md

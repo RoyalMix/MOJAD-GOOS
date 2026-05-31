@@ -1,8 +1,0 @@
-export function opportunityEngine(userProfile: any) {
-  return {
-    jobs: [],
-    businesses: [],
-    investments: [],
-    score: 0.0
-  };
-}

@@ -39,3 +39,42 @@ enum Role {
   BUSINESS
   INVESTOR
 }
+model Company {
+  id          String   @id @default(cuid())
+  name        String
+  description String?
+  industry    String?
+  website     String?
+
+  ownerId     String
+  owner       User     @relation(fields: [ownerId], references: [id])
+
+  jobs        Job[]
+
+  createdAt   DateTime @default(now())
+}model Job {
+  id          String   @id @default(cuid())
+  title       String
+  description String
+  salary      Float?
+  currency    String   @default("PI")
+
+  companyId   String
+  company     Company  @relation(fields: [companyId], references: [id])
+
+  applications Application[]
+
+  createdAt   DateTime @default(now())
+}
+model Application {
+  id        String   @id @default(cuid())
+  userId    String
+  jobId     String
+
+  status    String   @default("pending")
+
+  user      User     @relation(fields: [userId], references: [id])
+  job       Job      @relation(fields: [jobId], references: [id])
+
+  createdAt DateTime @default(now())
+}

@@ -1,3 +1,24 @@
+enum UserRole {
+  USER
+  EMPLOYER
+  COMPANY
+  INVESTOR
+  FREELANCER
+  STUDENT
+  FARMER
+  CREATOR
+  GOVERNMENT
+  NGO
+  ADMIN
+  SUPER_ADMIN
+}
+
+enum VerificationLevel {
+  NONE
+  BASIC
+  VERIFIED
+  PREMIUM
+}
 # User Schema
 
 Fields:
@@ -30,3 +51,10 @@ Timestamps:
 
 - created_at
 - updated_at
+role UserRole @default(USER)
+
+verificationLevel VerificationLevel @default(NONE)
+
+avatar String?
+
+updatedAt DateTime @updatedAt

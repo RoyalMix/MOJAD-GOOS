@@ -1,0 +1,53 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id          String   @id @default(uuid())
+  email       String   @unique
+  username    String   @unique
+  fullName    String?
+  password    String?
+
+  verified    Boolean  @default(false)
+
+  trustScore  Int      @default(0)
+  reputation  Int      @default(0)
+
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  wallet       Wallet?
+  mojadId      MojadID?
+}
+
+model MojadID {
+  id          String   @id @default(uuid())
+  userId      String   @unique
+
+  level       String   @default("Basic")
+  verified    Boolean  @default(false)
+
+  createdAt   DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id])
+}
+
+model Wallet {
+  id          String   @id @default(uuid())
+
+  userId      String   @unique
+
+  balance     Float    @default(0)
+
+  currency    String   @default("PI")
+
+  createdAt   DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id])
+}

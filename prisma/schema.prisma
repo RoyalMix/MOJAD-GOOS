@@ -131,3 +131,17 @@ model Wallet {
 
   transactions  PiTransaction[]
 }
+model Referral {
+  id            String   @id @default(cuid())
+
+  referrerId    String
+  referredId    String?
+
+  code          String   @unique
+
+  reward        Float    @default(0)
+
+  status        String   @default("pending")
+
+  createdAt     DateTime @default(now())
+}

@@ -1,0 +1,12 @@
+User
+- id
+- username
+- email
+- pi_uid
+- wallet_address
+- country
+- city
+- profile_photo
+- reputation_score
+- trust_score
+- created_at

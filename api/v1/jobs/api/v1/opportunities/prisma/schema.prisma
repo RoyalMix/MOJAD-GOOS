@@ -1,0 +1,15 @@
+model Opportunity {
+  id String @id @default(cuid())
+
+  title String
+
+  description String?
+
+  category String
+
+  country String?
+
+  rewardPi Float?
+
+  createdAt DateTime @default(now())
+}

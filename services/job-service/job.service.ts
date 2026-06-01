@@ -23,3 +23,12 @@ export class JobService {
     return [];
   }
 }
+createEscrowForJob(userId: string, jobId: string, amount: number) {
+  return {
+    escrow: true,
+    jobId,
+    userId,
+    amount,
+    currency: "PI"
+  };
+}

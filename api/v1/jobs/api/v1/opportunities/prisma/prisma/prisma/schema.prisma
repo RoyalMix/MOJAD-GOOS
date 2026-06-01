@@ -1,0 +1,11 @@
+model Stream {
+  id String @id @default(cuid())
+
+  title String
+
+  creatorId String
+
+  viewers Int @default(0)
+
+  createdAt DateTime @default(now())
+}

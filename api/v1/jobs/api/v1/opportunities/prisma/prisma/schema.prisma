@@ -1,0 +1,15 @@
+model Conversation {
+  id String @id @default(cuid())
+
+  createdAt DateTime @default(now())
+}
+
+model Message {
+  id String @id @default(cuid())
+
+  content String
+
+  senderId String
+
+  createdAt DateTime @default(now())
+}

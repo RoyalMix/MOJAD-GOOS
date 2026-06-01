@@ -1,4 +1,5 @@
-{
+npm install express cors
+npm install -D @types/express @types/cors{
 "name": "mojad-goos",
 "version": "1.0.0",
 "private": true,
@@ -7,4 +8,7 @@
 "build": "next build",
 "start": "next start"
 }
+}
+"scripts": {
+  "dev": "ts-node core/bootstrap/start.ts"
 }

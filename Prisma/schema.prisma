@@ -78,3 +78,36 @@ model Application {
 
   createdAt DateTime @default(now())
 }
+
+model Transaction {
+  id          String   @id @default(cuid())
+  fromUserId  String?
+  toUserId    String?
+  amount      Float
+  currency    String   @default("PI")
+
+  type        String   // payment | escrow | reward | refund
+  status      String   @default("pending")
+
+  createdAt   DateTime @default(now())
+}
+model Escrow {
+  id          String   @id @default(cuid())
+  jobId       String?
+  senderId    String
+  receiverId  String?
+
+  amount      Float
+  currency    String   @default("PI")
+
+  status      String   @default("held") // held | released | disputed
+
+  createdAt   DateTime @default(now())
+}
+model PaymentLog {
+  id          String   @id @default(cuid())
+  transactionId String
+  message     String
+
+  createdAt   DateTime @default(now())
+}

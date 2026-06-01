@@ -85,3 +85,34 @@ model Referral {
 
   user          User     @relation(fields: [userId], references: [id])
 }
+model Wallet {
+  id            String @id @default(cuid())
+
+  userId        String @unique
+
+  piBalance     Float @default(0)
+
+  lockedPi      Float @default(0)
+
+  totalEarnedPi Float @default(0)
+
+  user          User @relation(fields:[userId], references:[id])
+
+  transactions  PiTransaction[]
+}
+
+model PiTransaction {
+  id          String @id @default(cuid())
+
+  walletId    String
+
+  amount      Float
+
+  type        String
+
+  status      String
+
+  createdAt   DateTime @default(now())
+
+  wallet      Wallet @relation(fields:[walletId], references:[id])
+}

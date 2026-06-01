@@ -1,0 +1,45 @@
+enum UserRole {
+  USER
+  EMPLOYER
+  COMPANY
+  INVESTOR
+  FREELANCER
+  STUDENT
+  FARMER
+  CREATOR
+  GOVERNMENT
+  NGO
+  ADMIN
+  SUPER_ADMIN
+}
+
+enum VerificationLevel {
+  NONE
+  BASIC
+  VERIFIED
+  PREMIUM
+}
+
+model User {
+  id                String   @id @default(cuid())
+  email             String   @unique
+  username          String   @unique
+  fullName          String?
+  country           String?
+  avatar            String?
+
+  role              UserRole @default(USER)
+
+  verificationLevel VerificationLevel @default(NONE)
+
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  mojadId           MojadID?
+  wallet            Wallet?
+
+  jobs              Job[]
+  companies         Company[]
+  referrals         Referral[]
+  messages          Message[]
+}

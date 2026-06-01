@@ -60,3 +60,16 @@ model Reputation {
 
   user            User @relation(fields:[userId], references:[id])
 }
+User
+MojadID
+Wallet
+PiTransaction
+Reputation
+Job
+Company
+Opportunity
+Message
+Conversation
+Referral
+Stream
+Notification

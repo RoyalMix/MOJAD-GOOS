@@ -23,3 +23,18 @@ Status:
 
 - active
 - suspended
+model PiTransaction {
+  id          String @id @default(cuid())
+
+  walletId    String
+
+  amount      Float
+
+  type        String
+
+  status      String
+
+  createdAt   DateTime @default(now())
+
+  wallet Wallet @relation(fields:[walletId], references:[id])
+}

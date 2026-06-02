@@ -614,3 +614,166 @@ model TrustProfile {
   updatedAt   DateTime @updatedAt
 
 }
+Skip to content
+code Search Results · repo:RoyalMix/MOJAD-GOOS core
+Filter:
+102 files
+in
+RoyalMix/MOJAD-GOOS(press backspace or delete to remove)
+
+
+prisma/api/core/index.ts
+export * from "../../core/identity-engine";
+export * from "../../core/opportunity-engine";
+export * from "../../core/reputation-engine";
+export * from "../../core/trust-engine";
+export * from "../../core/payment-engine";
+export * from "../../core/referral-engine";
+
+
+README.md
+Core Modules
+Core Principles
+
+
+core/bootstrap/core/bootstrap/start.ts
+import app from "./server";
+const PORT = process.env.PORT || 4000;
+app.listen(PORT, () => {
+  console.log(`🚀 MOJAD GOOS Backend running on port ${PORT}`);
+});
+
+
+apps/web/app/packages/auth/core/payment-engine/pi-payments.ts
+export async function sendPiPayment(from, to, amount) {
+  return {
+    status: "success",
+    from,
+    to,
+    amount,
+    currency: "π",
+
+
+docs/ROADMAP.md
+Build the core infrastructure of MOJAD GOOS.
+Phase 2 — Core Platform
+Show 1 more match
+
+
+apps/web/app/page.tsx
+        Global Opportunity Operating System powered by AI + Pi Network
+      </p>
+      {/* CORE MODULES */}
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mt-8">
+        <div className="p-4 bg-white/10 rounded-xl">JobNet</div>
+
+
+prisma/services/search-service/api/v1/search/core/ai-engine/match.engine.ts
+export class MatchEngine {
+matchUserToJobs(user:any,jobs:any[]){
+return [];
+}
+
+
+services/api/routes/auth/api/routes/auth/apps/web/app/core/identity-engine/mojad-id.ts
+export function generateMojadID(username: string) {
+  const random = Math.floor(100000 + Math.random() * 900000);
+  return `MOJAD-${username.toUpperCase()}-${random}`;
+}
+
+
+prisma/core/graph-engine/core/graph-engine/core/graph-engine/query.engine.ts
+export class GraphQueryEngine {
+query(input:any){
+return {
+results:[]
+};
+
+
+services/job-service/api/v1/jobs/core/opportunity-engine/business.service.ts
+export class BusinessService {
+  createCompany(ownerId: string, name: string) {
+    return {
+      id: Date.now().toString(),
+      ownerId,
+      name,
+
+
+prisma/core/graph-engine/core/graph-engine/relationship.engine.ts
+export class RelationshipEngine {
+findConnections(entityId:string){
+return {
+connections:[]
+};
+
+
+core/recommendation-engine/core/feed-engine/services/feed-service/feed.service.ts
+import { FeedEngine } from "../../core/feed-engine/feed.engine";
+const feed = new FeedEngine();
+export class FeedService {
+getFeed(userId:string){
+
+
+package.json
+"build": "next build",
+"start": "next start"
+}
+}
+"scripts": {
+  "dev": "ts-node core/bootstrap/start.ts"
+}
+
+
+core/recommendation-engine/core/feed-engine/feed.engine.ts
+export class FeedEngine {
+buildFeed(userId:string){
+return {
+feed:[]
+};
+
+
+prisma/prisma/core/opportunity-engine/engagement-matcher.ts
+export class EngagementMatcher {
+  matchOpportunity(message: string) {
+    if (message.includes("job")) {
+      return "JOB_OPPORTUNITY";
+    }
+    if (message.includes("invest")) {
+
+
+services/api/routes/auth/api/routes/auth/apps/web/app/core/identity-engine/services/pi-wallet-service/docs/api/routes/opportunities/docs/PI_INTEGRATION.md
+MOJAD Pi Integration Strategy
+Core Components
+- Pi Authentication
+- Pi Wallet
+- Pi Payments
+
+
+services/api/routes/auth/api/routes/auth/apps/web/app/core/identity-engine/services/pi-wallet-service/docs/ONBOARDING_FLOW.md
+MOJAD User Onboarding Flow
+1. User Registration
+- Email
+- Username
+- Password
+
+
+prisma/services/storage-service/api/v1/contracts/api/v1/invoices/core/ai-engine/chat-ai.engine.ts
+export class ChatAI {
+translate(){}
+summarize(){}
+generateContract(){}
+
+
+core/bootstrap/server.ts
+import express from "express";
+import cors from "cors";
+const app = express();
+app.use(cors());
+app.use(express.json());
+
+
+prisma/services/video-service/api/v1/video/apps/web/app/video/core/interview-engine/interview.engine.ts
+export class InterviewEngine {
+generateInterview(){
+return {
+status:"ready"

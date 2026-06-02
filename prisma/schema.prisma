@@ -177,3 +177,14 @@ model MojadID {
 
   createdAt         DateTime @default(now())
 }
+model Verification {
+  id          String   @id @default(cuid())
+
+  userId      String
+
+  badgeType   String
+
+  verified    Boolean  @default(false)
+
+  createdAt   DateTime @default(now())
+}

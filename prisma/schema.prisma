@@ -1,3 +1,16 @@
+model MeetingParticipant {
+
+  id          String   @id @default(cuid())
+
+  meetingId   String
+
+  userId      String
+
+  role        String
+
+  joinedAt    DateTime?
+
+}
 model VideoMeeting {
 
   id            String   @id @default(cuid())

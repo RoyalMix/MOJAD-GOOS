@@ -1,3 +1,18 @@
+model Wallet {
+  id            String @id @default(cuid())
+
+  userId        String @unique
+
+  piBalance     Float @default(0)
+
+  lockedPi      Float @default(0)
+
+  totalEarnedPi Float @default(0)
+
+  user          User @relation(fields:[userId], references:[id])
+
+  transactions  PiTransaction[]
+}
 model MeetingParticipant {
 
   id          String   @id @default(cuid())

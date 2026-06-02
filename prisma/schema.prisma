@@ -403,3 +403,16 @@ model Notification {
   createdAt   DateTime @default(now())
 
 }
+model SearchHistory {
+
+  id        String   @id @default(cuid())
+
+  userId    String
+
+  query     String
+
+  type      String
+
+  createdAt DateTime @default(now())
+
+}

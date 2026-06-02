@@ -1,3 +1,42 @@
+model SystemInsight {
+
+  id          String   @id @default(cuid())
+
+  key         String
+
+  value       Json
+
+  updatedAt   DateTime @updatedAt
+
+}
+model AITrainingData {
+
+  id          String   @id @default(cuid())
+
+  type        String   // match, moderation, ranking
+
+  input       Json
+
+  output      Json
+
+  score       Float?
+
+  createdAt   DateTime @default(now())
+
+}
+model UserActivityLog {
+
+  id          String   @id @default(cuid())
+
+  userId      String
+
+  action      String
+
+  metadata    Json?
+
+  createdAt   DateTime @default(now())
+
+}
 model ModerationLog {
 
   id          String   @id @default(cuid())

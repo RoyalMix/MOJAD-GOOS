@@ -1,4 +1,18 @@
-model Message {
+model VoiceCall {
+
+  id          String   @id @default(cuid())
+
+  callerId    String
+
+  receiverId  String
+
+  duration    Int?
+
+  status      String
+
+  createdAt   DateTime @default(now())
+
+}model Message {
   id          String   @id @default(cuid())
 
   senderId    String

@@ -322,3 +322,26 @@ datasource db {
  provider = "postgresql"
  url      = env("DATABASE_URL")
 }
+model FeedPost {
+
+  id          String   @id @default(cuid())
+
+  authorId    String
+
+  type        String
+
+  title       String
+
+  content     String
+
+  mediaUrl    String?
+
+  views       Int      @default(0)
+
+  likes       Int      @default(0)
+
+  shares      Int      @default(0)
+
+  createdAt   DateTime @default(now())
+
+}

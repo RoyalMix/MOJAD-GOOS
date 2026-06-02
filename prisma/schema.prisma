@@ -1,3 +1,33 @@
+model GraphEdge {
+
+  id            String   @id @default(cuid())
+
+  fromNodeId    String
+
+  toNodeId      String
+
+  relationType  String
+
+  weight        Float    @default(1)
+
+  createdAt     DateTime @default(now())
+
+}
+model GraphNode {
+
+  id          String   @id @default(cuid())
+
+  nodeType    String
+
+  entityId    String
+
+  label       String
+
+  metadata    Json?
+
+  createdAt   DateTime @default(now())
+
+}
 model Recommendation {
 
   id          String   @id @default(cuid())

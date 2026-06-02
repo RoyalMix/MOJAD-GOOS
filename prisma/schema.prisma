@@ -160,3 +160,20 @@ model Stream {
 
   createdAt   DateTime @default(now())
 }
+model MojadID {
+  id                String   @id @default(cuid())
+
+  userId            String   @unique
+
+  username          String   @unique
+
+  verificationLevel String   @default("basic")
+
+  trustScore        Int      @default(50)
+
+  reputationScore   Int      @default(0)
+
+  country           String?
+
+  createdAt         DateTime @default(now())
+}

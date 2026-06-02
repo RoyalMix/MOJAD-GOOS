@@ -1,3 +1,22 @@
+model Escrow {
+
+  id          String   @id @default(cuid())
+
+  senderId    String
+
+  receiverId  String
+
+  amount      Float
+
+  currency    String   @default("PI")
+
+  status      String   @default("pending")
+
+  createdAt   DateTime @default(now())
+
+  releasedAt  DateTime?
+
+}
 model MeetingParticipant {
 
   id          String   @id @default(cuid())
@@ -429,5 +448,4 @@ model TrustProfile {
   verified    Boolean  @default(false)
 
   updatedAt   DateTime @updatedAt
-
 }

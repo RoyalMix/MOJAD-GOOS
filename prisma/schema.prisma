@@ -358,3 +358,18 @@ model FeedInteraction {
   createdAt   DateTime @default(now())
 
 }
+model SponsoredPost {
+
+  id          String   @id @default(cuid())
+
+  postId      String
+
+  ownerId     String
+
+  budgetPi    Float
+
+  status      String
+
+  createdAt   DateTime @default(now())
+
+}

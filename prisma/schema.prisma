@@ -241,3 +241,12 @@ model Message {
 
   createdAt   DateTime @default(now())
 }
+model Conversation {
+  id          String   @id @default(cuid())
+
+  participantA String
+
+  participantB String
+
+  createdAt   DateTime @default(now())
+}

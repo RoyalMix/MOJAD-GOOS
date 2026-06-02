@@ -145,3 +145,18 @@ model Referral {
 
   createdAt     DateTime @default(now())
 }
+model Stream {
+  id          String   @id @default(cuid())
+
+  creatorId   String
+
+  title       String
+
+  views       Int      @default(0)
+
+  outcomes    Int      @default(0)
+
+  reward      Float    @default(0)
+
+  createdAt   DateTime @default(now())
+}

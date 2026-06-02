@@ -345,3 +345,16 @@ model FeedPost {
   createdAt   DateTime @default(now())
 
 }
+model FeedInteraction {
+
+  id          String   @id @default(cuid())
+
+  userId      String
+
+  postId      String
+
+  action      String
+
+  createdAt   DateTime @default(now())
+
+}

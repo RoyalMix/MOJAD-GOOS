@@ -1,3 +1,22 @@
+model ModerationLog {
+
+  id          String   @id @default(cuid())
+
+  userId      String
+
+  contentType String   // job, message, post, payment
+
+  contentId   String?
+
+  riskScore   Float    @default(0)
+
+  status      String   // allowed | flagged | blocked
+
+  reason      String?
+
+  createdAt   DateTime @default(now())
+
+}
 model Verification {
 
   id          String   @id @default(cuid())

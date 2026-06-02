@@ -416,3 +416,18 @@ model SearchHistory {
   createdAt DateTime @default(now())
 
 }
+model TrustProfile {
+
+  id          String   @id @default(cuid())
+
+  userId      String   @unique
+
+  score       Float    @default(50)
+
+  level       String   @default("new")
+
+  verified    Boolean  @default(false)
+
+  updatedAt   DateTime @updatedAt
+
+}

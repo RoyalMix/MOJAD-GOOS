@@ -1,3 +1,18 @@
+model Verification {
+
+  id          String   @id @default(cuid())
+
+  userId      String
+
+  type        String   // email | phone | KYC
+
+  status      String   @default("pending")
+
+  createdAt   DateTime @default(now())
+
+  verifiedAt  DateTime?
+
+}
 model MojadUser {
 
   id          String   @id @default(cuid())

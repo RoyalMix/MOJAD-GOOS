@@ -1,3 +1,20 @@
+model SearchIndex {
+
+  id          String   @id @default(cuid())
+
+  entityType  String
+
+  entityId    String
+
+  title       String
+
+  content     String
+
+  tags        String[]
+
+  createdAt   DateTime @default(now())
+
+}
 model SystemInsight {
 
   id          String   @id @default(cuid())

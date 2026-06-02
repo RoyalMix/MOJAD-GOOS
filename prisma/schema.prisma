@@ -1,4 +1,25 @@
-generator client {
+model Message {
+  id          String   @id @default(cuid())
+
+  senderId    String
+  receiverId  String
+
+  type        String   @default("text")
+
+  content     String?
+
+  fileUrl     String?
+
+  fileName    String?
+
+  fileSize    Int?
+
+  metadata    String?
+
+  read        Boolean  @default(false)
+
+  createdAt   DateTime @default(now())
+}generator client {
   provider = "prisma-client-js"
 }
 

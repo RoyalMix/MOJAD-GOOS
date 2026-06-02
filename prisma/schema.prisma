@@ -373,3 +373,16 @@ model SponsoredPost {
   createdAt   DateTime @default(now())
 
 }
+model Subscription {
+
+  id          String   @id @default(cuid())
+
+  userId      String
+
+  plan        String
+
+  active      Boolean  @default(true)
+
+  createdAt   DateTime @default(now())
+
+}

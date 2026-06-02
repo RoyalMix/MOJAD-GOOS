@@ -188,3 +188,26 @@ model Verification {
 
   createdAt   DateTime @default(now())
 }
+model User {
+  id              String   @id @default(cuid())
+
+  email           String   @unique
+
+  password        String
+
+  fullName        String?
+
+  username        String?  @unique
+
+  country         String?
+
+  phone           String?
+
+  avatar          String?
+
+  trustScore      Int      @default(50)
+
+  reputationScore Int      @default(0)
+
+  createdAt       DateTime @default(now())
+}

@@ -5,6 +5,14 @@ model User {
   password    String
   name        String
   role        Role     @default(USER)
+user
+employer
+investor
+teacher
+farmer
+business
+admin
+super_admin
 
   mojadId     MojadID?
   wallet      Wallet?

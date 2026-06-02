@@ -1,4 +1,24 @@
-model VoiceCall {
+model VideoMeeting {
+
+  id            String   @id @default(cuid())
+
+  hostId        String
+
+  title         String
+
+  description   String?
+
+  meetingCode   String   @unique
+
+  status        String   @default("scheduled")
+
+  startedAt     DateTime?
+
+  endedAt       DateTime?
+
+  createdAt     DateTime @default(now())
+
+}model VoiceCall {
 
   id          String   @id @default(cuid())
 

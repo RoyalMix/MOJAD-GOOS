@@ -1,3 +1,31 @@
+# MOJAD GOOS
+
+Global Opportunity Operating System
+
+## MVP
+
+Current focus:
+
+- Pi Login
+- Pi Wallet
+- Pi Payments
+- Jobs
+- Chat
+- Escrow
+- Opportunity Score
+
+## Vision
+
+Job
+→ Chat
+→ Interview
+→ Hire
+→ Pi Payment
+
+Buyer
+→ Seller
+→ Escrow
+→ Pi Payment
 π MOJAD GOOS
 
 Global Opportunity Operating System

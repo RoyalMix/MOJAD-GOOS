@@ -2,6 +2,40 @@
 
 Global Opportunity Operating System
 
+## MVP Focus
+
+- Pi Login
+- Pi Wallet
+- Pi Payments
+- Jobs Marketplace
+- Communication
+- Escrow
+- Trust System
+
+## Core Workflow
+
+Employer
+→ Post Job
+→ AI Match
+→ Chat
+→ Interview
+→ Hire
+→ Escrow
+→ Pi Payment
+
+Buyer
+→ Seller
+→ Escrow
+→ Pi Payment
+
+Investor
+→ Startup
+→ Pitch
+→ Funding
+# MOJAD GOOS
+
+Global Opportunity Operating System
+
 ## MVP
 
 Current focus:

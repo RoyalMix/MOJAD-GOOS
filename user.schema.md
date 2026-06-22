@@ -1,3 +1,26 @@
+model Job {
+  id              String @id @default(cuid())
+
+  title           String
+  description     String
+
+  category        String?
+  location        String?
+
+  salaryMin       Float?
+  salaryMax       Float?
+
+  employmentType  String?
+
+  isRemote        Boolean @default(false)
+
+  ownerId         String
+  owner           User @relation(fields:[ownerId], references:[id])
+
+  applications    Application[]
+
+  createdAt       DateTime @default(now())
+}
 country           String?
 city              String?
 language          String?

@@ -1,3 +1,81 @@
+
+model Identity {
+
+  id             String @id @default(cuid())
+
+  userId         String
+
+  verificationLevel String
+
+  createdAt      DateTime @default(now())
+}
+model Notification {
+
+  id             String @id @default(cuid())
+
+  title          String
+
+  content        String
+
+  userId         String
+
+  createdAt      DateTime @default(now())
+}
+model Opportunity {
+
+  id             String @id @default(cuid())
+
+  title          String
+
+  description    String
+
+  type           String
+
+  createdAt      DateTime @default(now())
+}
+model Escrow {
+
+  id             String @id @default(cuid())
+
+  amount         Float
+
+  status         String
+
+  createdAt      DateTime @default(now())
+}
+model Payment {
+
+  id             String @id @default(cuid())
+
+  amount         Float
+
+  currency       String @default("PI")
+
+  status         String
+
+  paymentType    String?
+
+  createdAt      DateTime @default(now())
+}
+model Message {
+
+  id             String @id @default(cuid())
+
+  content        String
+
+  messageType    String @default("TEXT")
+
+  senderId       String
+  sender         User @relation(fields:[senderId], references:[id])
+
+  createdAt      DateTime @default(now())
+}
+model Conversation {
+
+  id             String @id @default(cuid())
+
+  createdAt      DateTime @default(now())
+}
 model Application {
 
   id              String @id @default(cuid())

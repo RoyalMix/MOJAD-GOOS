@@ -1,3 +1,25 @@
+country           String?
+city              String?
+language          String?
+
+bio               String?
+avatar            String?
+
+skills            String?
+experienceLevel   String?
+
+phone             String?
+
+isVerified        Boolean @default(false)
+
+opportunityScore  Float @default(0)
+
+lastActiveAt      DateTime?
+
+walletAddress     String?
+
+createdAt         DateTime @default(now())
+updatedAt         DateTime @updatedAt
 enum UserRole {
   USER
   EMPLOYER

@@ -1,3 +1,10 @@
+country          String?
+language         String?
+skills           String?
+bio              String?
+avatar           String?
+
+opportunityScore Float @default(0)
 generator client {
   provider = "prisma-client-js"
 }

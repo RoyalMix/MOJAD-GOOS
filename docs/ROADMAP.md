@@ -1,3 +1,53 @@
+Build the MOJAD Communication & Creator Economy Layer.
+
+Modules:
+
+1. CommunicationNet
+- Private Messaging
+- Group Messaging
+- Business Messaging
+- Investor Messaging
+- Voice Notes
+
+2. StreamNet
+- Live Streaming
+- Startup Pitch Streams
+- Business Streams
+- Educational Streams
+- Government Streams
+
+3. Opportunity Shorts
+- Short Videos
+- Job Promotions
+- Business Promotions
+- Product Promotions
+- Service Promotions
+- Startup Pitch Videos
+
+4. Creator Economy
+- Creator Profiles
+- Followers
+- Likes
+- Shares
+- Comments
+- Pi Tips
+- Sponsored Content
+
+5. Discovery Feed
+- Trending Creators
+- Trending Businesses
+- Trending Opportunities
+- Trending Services
+
+6. Monetization Foundation
+- Pi Tips
+- Pi Gifts
+- Creator Rewards
+- Referral Rewards
+
+Goal:
+
+Transform MOJAD from a marketplace into a daily-engagement opportunity ecosystem where users create, communicate, discover and monetize opportunities.
 MOJAD GOOS ROADMAP
 
 Phase 1 — Foundation

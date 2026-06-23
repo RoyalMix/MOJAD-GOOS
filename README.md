@@ -1,3 +1,18 @@
+Current Modules
+
+✓ JobNet
+✓ BusinessNet
+✓ InvestNet
+✓ ServiceNet
+✓ HealthNet
+✓ AgriNet
+
+Upcoming Modules
+
+• CommunicationNet
+• StreamNet
+• Opportunity Shorts
+• Creator Economy
 # MOJAD GOOS
 
 Global Opportunity Operating System

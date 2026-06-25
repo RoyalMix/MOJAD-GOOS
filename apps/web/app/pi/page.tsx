@@ -1,3 +1,11 @@
+Pi Login
+Pi Wallet
+Pi Payments
+Pi Escrow
+Pi Referrals
+Pi Rewards
+Pi Identity
+Pi Verification
 export default function PiPage(){
 
 return(

@@ -1,3 +1,12 @@
+Jobs
+Services
+Investments
+Startups
+Scholarships
+Grants
+Tenders
+Creator Posts
+Business Opportunities
 export default function FeedPage() {
 
 return (

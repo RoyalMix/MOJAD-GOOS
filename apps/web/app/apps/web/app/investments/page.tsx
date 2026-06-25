@@ -1,4 +1,0 @@
-Startups
-Investors
-Funding Requests
-Crowdfunding

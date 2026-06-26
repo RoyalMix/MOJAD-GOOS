@@ -1,0 +1,15 @@
+Jobs
+Services
+Businesses
+Investors
+Creators
+NGOs
+Governments
+Grants
+Scholarships
+Houses
+Hotels
+Clinics
+Pharmacy 
+Saloons 
+Barbashops 

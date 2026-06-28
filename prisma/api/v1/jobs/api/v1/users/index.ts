@@ -1,3 +1,7 @@
+piUid
+piUsername
+piVerified
+lastLogin
 import express from "express";
 
 const router = express.Router();

@@ -1,3 +1,30 @@
+schema.prisma
+
+models/
+
+User
+Business
+Job
+Service
+Investment
+Grant
+MarketplaceProduct
+Creator
+Video
+ShortVideo
+LiveStream
+Conversation
+Message
+Notification
+Wallet
+Payment
+Transaction
+TrustScore
+Passport
+Badge
+Referral
+Community
+Organization
 country          String?
 language         String?
 skills           String?

@@ -55,3 +55,40 @@ MOJAD Engines
 ↓
 
 MOJAD Modules
+Users
+
+↓
+
+Identity
+
+↓
+
+Global Context
+
+↓
+
+Intelligence Mesh
+
+↓
+
+Decision Engine
+
+↓
+
+Knowledge Graph
+
+↓
+
+AI Agents
+
+↓
+
+Opportunity Engine
+
+↓
+
+Platform Engines
+
+↓
+
+Modules

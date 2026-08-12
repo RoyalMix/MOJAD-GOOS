@@ -1,3 +1,140 @@
+0. ARCHITECTURE CONTROL & DISCIPLINE LOCK
+
+This document is a production-oriented architectural evolution of the MOJAD GOOS Trust infrastructure.
+
+It must remain subordinate to and consistent with:
+
+ARCHITECTURE_LAWS.md
+↓
+ENGINEERING_DISCIPLINE.md
+↓
+TRUST_CONSTITUTION.md
+↓
+TRUST_PRINCIPLES.md
+↓
+TRUST_MODEL.md
+↓
+TRUST_RULES.md
+↓
+TRUST_ARCHITECTURE.md
+↓
+TRUST_SECURITY.md + TRUST_PRIVACY.md
+↓
+TRUST_PRIVACY_ARCHITECTURE.md
+↓
+TRUST_THREAT_MODEL.md
+↓
+IMPLEMENTATION
+
+Architectural Authority Boundary
+
+TRUST_ARCHITECTURE.md defines how Trust capabilities are structurally organized, isolated, protected, operated, integrated, observed, recovered, and evolved.
+
+It must not redefine, weaken, bypass, or silently override requirements established by higher-level governance documents.
+
+Where architectural convenience conflicts with a constitutional, principled, model, security, privacy, or Trust Rule requirement, the higher-level requirement prevails.
+
+Architecture Does Not Create New Trust Authority
+
+Architecture components must not acquire authority merely because they exist technically.
+
+In particular:
+
+Architecture ≠ Authority
+Trust ≠ Permission
+Trust ≠ Human Worth
+AI ≠ Final Authority
+Verification ≠ Universal Trust
+Evidence ≠ Public Disclosure
+
+Controlled Evolution Rule
+
+Existing approved architecture must not be destructively replaced merely to introduce new capabilities.
+
+Architectural evolution must prefer:
+
+PRESERVE
+↓
+REVIEW
+↓
+REFINE
+↓
+EXTEND
+↓
+VALIDATE
+↓
+VERSION
+↓
+MIGRATE
+↓
+MONITOR
+
+Destructive architectural changes require explicit review and documented justification.
+
+Production Readiness Rule
+
+A Trust capability must not be considered production-ready merely because its functional code works.
+
+Production readiness requires appropriate validation of:
+
+- Governance compliance
+- Trust Rule compliance
+- Security
+- Privacy
+- Threat resistance
+- Data integrity
+- Failure behavior
+- Recovery
+- Auditability
+- Observability
+- Explainability
+- Correctability
+- Scalability
+- Interoperability
+- Operational ownership
+
+Architecture Review Gate
+
+Before a major Trust architectural capability is approved, reviewers must determine:
+
+1. What requirement does it satisfy?
+2. Which Trust Rule governs it?
+3. What component owns it?
+4. What data does it process?
+5. What is its privacy classification?
+6. What security boundary protects it?
+7. What authority does it possess?
+8. What authority does it explicitly NOT possess?
+9. What happens when it fails?
+10. How is it audited?
+11. How is it recovered?
+12. How can it be corrected?
+13. How can it be disabled safely?
+14. How does it scale?
+15. How does it evolve?
+16. What external dependencies does it have?
+17. What happens if those dependencies fail?
+18. Can the capability be abused or manipulated?
+19. Does it introduce a new irreversible consequence?
+20. Has the architecture been reviewed before implementation?
+
+A critical unresolved question must block production approval until appropriately resolved.
+
+Discipline Lock
+
+No implementation should bypass the architectural review gates.
+
+No optimization for growth, revenue, engagement, speed, convenience, or scale may weaken a foundational Trust protection.
+
+FOUNDATION FIRST.
+TRUTH BEFORE CONFIDENCE.
+EVIDENCE BEFORE ASSUMPTION.
+PRIVACY BEFORE EXPOSURE.
+SECURITY BEFORE SCALE.
+HUMAN CONTROL BEFORE AUTOMATION.
+DISCIPLINE BEFORE SPEED.
+REVIEW BEFORE BUILD.
+FUTURE ALWAYS.
 MOJAD GOOS — TRUST ARCHITECTURE
 
 Status: Architecture Refinement

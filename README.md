@@ -1,3 +1,63 @@
+mojad-goos/
+├── README.md
+├── LICENSE
+├── ARCHITECTURE.md
+├── ENGINEERING_DISCIPLINE.md
+├── SECURITY_LAWS.md
+├── DATA_GOVERNANCE.md
+├── AI_AGENT_GOVERNANCE.md
+├── CHILD_SAFETY.md
+├── API_GOVERNANCE.md
+├── EVENT_GOVERNANCE.md
+├── PROVIDER_ABSTRACTION.md
+├── PRODUCT_LAWS.md
+│
+├── docs/
+│   ├── vision/
+│   │   └── MOJAD_GOOS_VISION.md
+│   ├── architecture/
+│   │   ├── DOMAIN_MODEL.md
+│   │   ├── OPPORTUNITY_ARCHITECTURE.md
+│   │   ├── GAMES_OS_ARCHITECTURE.md
+│   │   ├── AI_OS_ARCHITECTURE.md
+│   │   ├── IDENTITY_ARCHITECTURE.md
+│   │   ├── TRUST_ARCHITECTURE.md
+│   │   ├── REALTIME_ARCHITECTURE.md
+│   │   └── PAYMENTS_ARCHITECTURE.md
+│   └── roadmap/
+│       └── MOJAD_ROADMAP.md
+│
+├── contracts/
+│   ├── opportunities/
+│   ├── games/
+│   ├── ai/
+│   ├── identity/
+│   ├── trust/
+│   ├── realtime/
+│   ├── learning/
+│   ├── payments/
+│   └── events/
+│
+├── packages/
+│   ├── core/
+│   ├── opportunity-engine/
+│   ├── games-sdk/
+│   ├── ai-sdk/
+│   ├── identity-sdk/
+│   ├── trust-sdk/
+│   └── event-contracts/
+│
+├── tests/
+│   ├── architecture/
+│   ├── security/
+│   ├── contracts/
+│   ├── events/
+│   └── integration/
+│
+└── .github/
+    ├── workflows/
+    ├── ISSUE_TEMPLATE/
+    └── pull_request_template.md
 Vision
 Architecture
 Modules

@@ -1,0 +1,57 @@
+name: MOJAD Constitution Check
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+  pull-requests: read
+
+jobs:
+  constitution:
+    name: Verify MOJAD Governance Files
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Verify required governance files
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          required_files=(
+            "AGENTS.md"
+            "MOJAD_GOOS_COPILOT_AGENT_CONSTITUTION.md"
+            "MOJAD_GOOS_AGENT_WORKFLOW.md"
+            "MOJAD_GOOS_DEFINITION_OF_DONE.md"
+            "MOJAD_GOOS_SOURCE_OF_TRUTH.md"
+            ".github/copilot-instructions.md"
+            ".github/pull_request_template.md"
+          )
+
+          for file in "${required_files[@]}"; do
+            if [ ! -f "$file" ]; then
+              echo "::error file=$file::Required MOJAD governance file is missing."
+              exit 1
+            fi
+          done
+
+          echo "MOJAD governance files verified."
+
+      - name: Verify mandatory constitutional language
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          grep -q "NO GUESSING" MOJAD_GOOS_COPILOT_AGENT_CONSTITUTION.md
+          grep -q "PRODUCTION" MOJAD_GOOS_COPILOT_AGENT_CONSTITUTION.md
+          grep -q "BLOCKED" MOJAD_GOOS_COPILOT_AGENT_CONSTITUTION.md
+          grep -q "EVIDENCE" MOJAD_GOOS_COPILOT_AGENT_CONSTITUTION.md
+          grep -q "SOURCE-OF-TRUTH" MOJAD_GOOS_COPILOT_AGENT_CONSTITUTION.md
+
+          echo "Constitutional requirements detected."

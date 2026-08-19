@@ -1,0 +1,47 @@
+/*
+# MOJAD GOOS CODEOWNERS
+# DESIGN DRAFT — UPDATE WITH VERIFIED OWNERS
+#
+# IMPORTANT:
+# Do not invent production owners.
+# Replace placeholders only after ownership is verified.
+
+# Core architecture
+/AGENTS.md                    @MOJAD-ARCHITECTURE-OWNER
+/MOJAD_GOOS_*                 @MOJAD-ARCHITECTURE-OWNER
+
+# Governance
+/docs/governance/             @MOJAD-GOVERNANCE-OWNER
+
+# Security
+/.github/workflows/           @MOJAD-SECURITY-OWNER
+
+# Database
+/prisma/                      @MOJAD-DATABASE-OWNER
+
+# Identity
+/services/pi-auth-service/    @MOJAD-IDENTITY-OWNER
+/services/profile-service/    @MOJAD-IDENTITY-OWNER
+
+# Payments
+/services/pi-payment-service/ @MOJAD-PAYMENTS-OWNER
+/services/pi-wallet-service/  @MOJAD-PAYMENTS-OWNER
+
+# Opportunity
+/packages/opportunity-engine/ @MOJAD-OPPORTUNITY-OWNER
+/contracts/                   @MOJAD-API-OWNER
+
+# Events
+/src/core/events/             @MOJAD-EVENTS-OWNER
+
+# AI
+/ai/                          @MOJAD-AI-OWNER
+
+# Realtime
+/realtime/                    @MOJAD-REALTIME-OWNER
+
+# Games
+/games/                       @MOJAD-GAMES-OWNER
+
+# Learning
+/learning/                    @MOJAD-LEARNING-OWNER

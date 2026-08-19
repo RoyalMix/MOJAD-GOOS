@@ -1,0 +1,70 @@
+name: MOJAD Design First Gate
+
+on:
+  pull_request:
+
+permissions:
+  contents: read
+  pull-requests: read
+
+jobs:
+  design-first:
+    name: Verify Design-First Evidence
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Inspect PR template
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          test -f .github/pull_request_template.md
+
+          echo "PR safety template exists."
+
+      - name: Require evidence language for sensitive changes
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          BASE="${{ github.event.pull_request.base.sha }}"
+          HEAD="${{ github.event.pull_request.head.sha }}"
+
+          git diff --name-only "$BASE" "$HEAD" > changed_files.txt
+
+          SENSITIVE=false
+
+          if grep -Eiq \
+            '(^|/)(prisma|payment|payments|wallet|ledger|escrow|auth|security|rbac|rls|events?|outbox)(/|\.|$)' \
+            changed_files.txt; then
+            SENSITIVE=true
+          fi
+
+          if [ "$SENSITIVE" = true ]; then
+            echo "Sensitive files detected."
+
+            BODY="${{ github.event.pull_request.body }}"
+
+            if ! printf '%s' "$BODY" | grep -Eiq \
+              'EVIDENCE|SOURCE OF TRUTH|OWNER|ROLLBACK|APPROVAL'; then
+
+              echo "::error::Sensitive PR lacks required evidence/source-of-truth/owner/rollback/approval information."
+              exit 1
+            fi
+          fi
+
+      - name: Confirm design-first policy
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          grep -q "DESIGN-FIRST" AGENTS.md
+          grep -q "STOP" AGENTS.md
+          grep -q "BLOCKED" AGENTS.md
+
+          echo "Design-first policy verified."

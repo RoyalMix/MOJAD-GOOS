@@ -1,0 +1,135 @@
+name: MOJAD Safety Gates
+
+on:
+  pull_request:
+
+permissions:
+  contents: read
+  pull-requests: read
+
+jobs:
+  safety:
+    name: MOJAD Production Safety Gate
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Detect sensitive changes
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          BASE="${{ github.event.pull_request.base.sha }}"
+          HEAD="${{ github.event.pull_request.head.sha }}"
+
+          git diff --name-only "$BASE" "$HEAD" > changed_files.txt
+
+          echo "Changed files:"
+          cat changed_files.txt
+
+      - name: Block obvious destructive SQL
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          if git diff --unified=0 \
+              "${{ github.event.pull_request.base.sha }}" \
+              "${{ github.event.pull_request.head.sha }}" \
+              -- '*.sql' '*.prisma' \
+              | grep -Eiq \
+              'DROP[[:space:]]+(TABLE|COLUMN|SCHEMA)|TRUNCATE[[:space:]]+TABLE|ALTER[[:space:]]+TABLE.*DROP'; then
+
+            echo "::error::Potential destructive database operation detected."
+            echo "::error::Human database-owner approval and explicit migration review are required."
+            exit 1
+          fi
+
+      - name: Detect migration files
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          if grep -Eiq '(^|/)(migrations?)(/|$)|migration\.sql$' changed_files.txt; then
+            echo "::warning::Migration-related files detected."
+            echo "::warning::Production migration is NOT authorized by this workflow."
+            echo "::error::Migration changes require explicit database-owner review."
+            exit 1
+          fi
+
+      - name: Detect production environment mutation
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          if grep -Eiq \
+            '(^|/)(\.env\.production|production\.env|prod\.env)(\.|$)' \
+            changed_files.txt; then
+
+            echo "::error::Production environment configuration change detected."
+            exit 1
+          fi
+
+      - name: Detect likely secret material
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          if git diff \
+            "${{ github.event.pull_request.base.sha }}" \
+            "${{ github.event.pull_request.head.sha }}" \
+            | grep -Eiq \
+            '(PRIVATE KEY|BEGIN RSA PRIVATE KEY|BEGIN OPENSSH PRIVATE KEY|AWS_SECRET_ACCESS_KEY|DATABASE_URL=.*://[^[:space:]]+:[^@[:space:]]+@)'; then
+
+            echo "::error::Potential secret or credential material detected."
+            exit 1
+          fi
+
+      - name: Payment safety gate
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          if grep -Eiq \
+            '(^|/)(payment|payments|wallet|ledger|escrow)(/|\.|$)' \
+            changed_files.txt; then
+
+            echo "::error::Financial-domain change detected."
+            echo "::error::Payment/Finance owner approval is required."
+            exit 1
+          fi
+
+      - name: Security safety gate
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          if grep -Eiq \
+            '(^|/)(security|auth|rbac|rls|policy)(/|\.|$)' \
+            changed_files.txt; then
+
+            echo "::warning::Security-sensitive change detected."
+            echo "::warning::Security owner review is required."
+          fi
+
+      - name: Event safety gate
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          if grep -Eiq \
+            '(^|/)(events?|outbox|event-bus|eventbus)(/|\.|$)' \
+            changed_files.txt; then
+
+            echo "::warning::Event infrastructure change detected."
+            echo "::warning::Verify OutboxStore, idempotency and event transport before production use."
+          fi
+
+      - name: Final safety statement
+        shell: bash
+        run: |
+          echo "MOJAD safety analysis completed."
+          echo "No safety gate may be bypassed."

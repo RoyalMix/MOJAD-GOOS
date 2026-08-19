@@ -1,0 +1,22 @@
+✓ event requires id
+✓ event requires type
+✓ event requires version
+✓ event requires idempotency key
+
+✓ duplicate event is rejected
+✓ duplicate event does not execute twice
+
+✓ outbox stores event
+✓ outbox retries failed event
+✓ successful event becomes PUBLISHED
+
+✓ failed consumer does not lose event
+✓ retry limit is respected
+
+✓ event ordering is preserved where required
+
+✓ malformed event rejected
+
+✓ secret/token cannot appear in event payload
+
+✓ provider-specific fields don't enter core contracts

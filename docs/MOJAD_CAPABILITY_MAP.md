@@ -1,48 +1,44 @@
-# MOJAD GOOS — CAPABILITY MAP
-Version: 1.0
-Status: Foundation / Audit Required
+# MOJAD GOOS — CAPABILITY MAP™
 
-This is an architectural inventory, not a claim that every capability is production-ready.
+**Version:** 1.0  
+**Status:** Reconciliation foundation
 
-| Domain | Capability | Intended role | Initial status |
-|---|---|---|---|
-| Intelligence | MOJAD AI | Understand, reason, assist, orchestrate | PARTIAL |
-| Intelligence | Agent Swarm | Specialized intelligence workers | DESIGN |
-| Opportunity | Opportunity Engine | Discover, classify, rank, match, recommend | PARTIAL |
-| Knowledge | Search | Find opportunities and knowledge | PARTIAL |
-| Knowledge | Knowledge Graph | Connect entities and relationships | DESIGN/PARTIAL |
-| Evidence | Evidence Engine | Provenance, verification, freshness, conflicts | DESIGN |
-| Trust | Identity/Auth | Identity and authentication | PARTIAL |
-| Trust | Authorization/RLS | Permission boundaries | PARTIAL |
-| Trust | Reputation | Outcome-based reputation | PARTIAL |
-| Trust | Fraud | Abuse/risk detection | PARTIAL |
-| Work | Jobs | Employment and project opportunities | PARTIAL |
-| Work | Services | Local/global service opportunities | PARTIAL |
-| Business | Businesses | Business discovery and growth | PARTIAL |
-| Commerce | Marketplace | Products/services/trade | PARTIAL |
-| Capital | Investors | Capital discovery/matching | PARTIAL |
-| Capital | Grants | Grant discovery/matching | PLANNED/PARTIAL |
-| Education | Learning | Courses and skills | PARTIAL |
-| Education | Scholarships | Education funding | PLANNED/PARTIAL |
-| Community | Communities | People and opportunity networks | PARTIAL |
-| Social | Feed | Opportunity/content discovery | PARTIAL |
-| Communication | Messaging | User/business communication | PARTIAL |
-| Realtime | Voice/Video/Live | Real-time collaboration | PARTIAL |
-| Creator | Creator Economy | Content, audience, work, revenue | PARTIAL |
-| Media | Media Studio | Create/upload/process media | PARTIAL |
-| Games | Games | Play → Learn → Build → Opportunity | DESIGN/PARTIAL |
-| Economy | Payments | Transaction orchestration | PARTIAL |
-| Economy | Rewards | Budget-backed rewards | DESIGN/PARTIAL |
-| Pi | Pi Identity | Pi-native identity | PARTIAL |
-| Pi | Pi Payments | Pi payment adapter | BLOCKED/PARTIAL until verified |
-| Analytics | Analytics | Measure outcomes and health | PARTIAL |
-| Growth | Growth/Rewards | Missions, referrals, engagement | PARTIAL |
-| Intelligence | World Radar | Technology/science/business/economy/government/environment/Pi | DESIGN |
-| Intelligence | Early Warning | Detect meaningful changes early | DESIGN |
-| Data | Data Fabric | Source → ingest → verify → normalize → stream → store | DESIGN |
-| Compute | Compute Fabric | Cloud/GPU/edge/local/distributed | DESIGN |
-| Products | Product Factory | Build/test/publish/monitor products | DESIGN |
-| Security | Cyber Defense Mesh | Detect, verify, contain, recover, learn | DESIGN |
+## Principle
+**ONE CAPABILITY → MANY PRODUCTS → ONE AUTHORITATIVE IMPLEMENTATION**
 
-## Rule
-Every status must eventually be backed by Evidence Registry entries. No architecture document alone proves runtime readiness.
+Before creating a capability: search existing systems, identify owner, verify implementation/contract/runtime use, then reuse or adapt.
+
+## Capability Inventory
+| Capability | Intended role | Current documentation status |
+|---|---|---|
+| Identity/Auth/Authorization | Identity and access | Reconcile |
+| AI / AI Router | Intelligence and provider routing | Partial / reconcile |
+| Opportunity Engine | Discover, classify, rank, match, learn | Partial / reconcile |
+| Personal Opportunity Engine | User-specific opportunity paths | Partial / reconcile |
+| Search | Unified discovery | Partial / reconcile |
+| Recommendations | Personalized discovery | Partial / reconcile |
+| Trust / Reputation | Trust and outcome signals | Partial / reconcile |
+| Knowledge Graph | Entity/relationship intelligence | Unknown |
+| Memory | User/product/knowledge memory | Partial / reconcile |
+| Messaging | Conversations/messages | Partial / reconcile |
+| Realtime / LiveKit | Real-time communication | Partial / reconcile |
+| Media / Storage | Content and asset workflows | Partial / reconcile |
+| Economy / Payments | Fees, settlement, rewards | Partial / reconcile |
+| Pi | Pi identity/payment/ecosystem adapters | Partial / reconcile |
+| Jobs / Business / Marketplace | Economic opportunity | Partial / reconcile |
+| Education / Grants / Scholarships | Learning opportunities | Partial / reconcile |
+| Communities / Creators | Participation and creation | Partial / reconcile |
+| Games | Games → skills → reputation → opportunity | Partial / reconcile |
+| Product Factory | Product lifecycle | Design |
+| World Intelligence / Radars | External intelligence | Design |
+| Compute Fabric | Cloud/GPU/edge/distributed | Design |
+| Network/Data Fabric | Ingestion, streams, provenance, sync | Design |
+| Evidence Engine | Source/evidence/freshness/conflict | Design |
+| Intelligence Swarm | Specialized AI agents | Design |
+| Evolution Engine | Controlled technology evolution | Design |
+
+## Critical Rule
+This is an inventory framework, **not a production claim**. Final status requires direct evidence from code, database, provider and/or runtime inspection.
+
+## Duplicate-System Warning
+Do not create a second AI router, Opportunity Engine, Search, Trust, Realtime, EventBus, Payments/Economy, Knowledge Graph, Auth or Storage system until existing implementations are reconciled.

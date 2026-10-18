@@ -614,4 +614,215 @@ The precise pipeline may vary by repository and hosting provider, but critical s
 
 14.3 Human Approval
 
-Changes affecting production security, financial records, identity, permissions, destructive migratio
+Changes affecting production security, financial records, identity, permissions, destructive migrations, or consequential user data require the applicable human authorization.
+
+AI agents and automated tools may prepare and validate changes but must not bypass required approval.
+
+14.4 Deployment Evidence
+
+For each release, record:
+
+- Release identifier or commit SHA.
+- Environment.
+- Included changes.
+- Build and test results.
+- Migration status.
+- Approval record.
+- Deployment timestamp.
+- Post-deployment checks.
+- Known issues.
+- Rollback or recovery reference.
+
+A successful build is not proof that production is functioning correctly.
+
+15. Rollback and Safe Recovery
+
+Every consequential release should have a documented recovery approach.
+
+Where feasible:
+
+- Use backward-compatible changes.
+- Preserve the previous working release.
+- Validate database compatibility.
+- Maintain a safe method to disable a defective feature.
+- Define rollback decision authority.
+- Test recovery procedures.
+- Verify the system after rollback.
+
+Database rollback may not be safe if new writes or irreversible transformations have occurred.
+
+When a direct rollback is unsafe, use a documented forward-recovery or data-reconciliation procedure.
+
+Never claim rollback success without confirming the resulting application and data state.
+
+16. Dependency and Supply-Chain Security
+
+Maintain an inventory of important dependencies and their versions.
+
+Where practical:
+
+- Review dependency advisories.
+- Update vulnerable packages.
+- Use lockfiles.
+- Restrict unnecessary dependencies.
+- Protect build and deployment credentials.
+- Review third-party scripts and SDKs.
+- Verify package sources.
+- Scan artifacts where supported.
+- Document accepted vulnerabilities and remediation plans.
+
+Emergency updates must still be tested for compatibility and security.
+
+17. AI and External Provider Reliability
+
+AI services and external integrations must be treated as fallible dependencies.
+
+Requirements include:
+
+- Timeouts.
+- Bounded retries.
+- Rate-limit handling.
+- Provider error classification.
+- Monitoring of latency and failure rates.
+- Approved fallback behavior.
+- Budget or usage limits where relevant.
+- Privacy controls.
+- Clear reporting of uncertain outcomes.
+
+A model provider being available does not prove that its output is correct.
+
+A successful model response does not prove that an external action was completed.
+
+The AI Truth & Conversation Standard must govern user-facing claims and execution reporting.
+
+18. Cost and Capacity Governance
+
+Monitor infrastructure, database, storage, AI, messaging, and real-time communication costs.
+
+Establish suitable usage budgets and alerts.
+
+Before a major scale investment, record:
+
+- The measured bottleneck.
+- Expected benefit.
+- Estimated operating cost.
+- Security implications.
+- Failure-mode changes.
+- Rollback or exit options.
+
+Do not introduce expensive distributed infrastructure merely to claim that the platform is globally scalable.
+
+Scaling decisions must be proportional to actual demand, business priorities, and verified technical constraints.
+
+19. Operational Ownership
+
+Each critical service must have an identifiable responsible owner or team.
+
+Operational documentation should specify:
+
+- Service purpose.
+- Dependencies.
+- Required credentials and permissions.
+- Monitoring dashboards.
+- Alert handling.
+- Backup and recovery procedures.
+- Deployment and rollback instructions.
+- Known limitations.
+- Escalation contacts or process.
+- Last review date.
+
+Unowned critical services should be treated as a governance risk.
+
+20. Security and Reliability Acceptance Tests
+
+Before a critical release, verify the relevant cases:
+
+- Unauthorized users cannot access protected resources.
+- Users cannot modify another user's protected records.
+- Secrets are not exposed in client bundles or logs.
+- Invalid input is rejected safely.
+- Rate limits work as intended.
+- Database migrations preserve required integrity.
+- Duplicate operations do not create duplicate consequential effects.
+- Provider timeouts do not produce false success.
+- Backup restoration has been tested according to policy.
+- Critical alerts reach the responsible operator.
+- Incident procedures are accessible.
+- Recovery and rollback instructions are valid.
+- Critical dependencies and known vulnerabilities are reviewed.
+- Production smoke tests pass.
+- The deployed version matches the approved release.
+- Monitoring shows no unresolved release-blocking regression.
+
+Record actual results and evidence. Do not mark a test as passed merely because it has been written.
+
+21. Required Operational Evidence
+
+Maintain an auditable record containing, where applicable:
+
+- Architecture and dependency inventory.
+- Threat model.
+- Access-control review.
+- Database and migration review.
+- Security test results.
+- Load-test results.
+- Baseline and capacity measurements.
+- Monitoring and alert evidence.
+- Backup completion and restoration evidence.
+- Recovery objectives.
+- Incident records.
+- Deployment and rollback records.
+- Accepted risks and exceptions.
+- Responsible owners.
+- Review and approval timestamps.
+
+Evidence must identify the environment and date so that historical results are not confused with current status.
+
+22. Implementation Roadmap
+
+Phase 1 — Establish the Baseline
+
+Audit the current code, database, infrastructure, security controls, tests, and deployment process.
+
+Record unknowns and material risks.
+
+Phase 2 — Protect Critical Assets
+
+Prioritize identity, authorization, secrets, personal data, financial records, and destructive operations.
+
+Address critical vulnerabilities before introducing additional complexity.
+
+Phase 3 — Establish Reliability Controls
+
+Implement suitable logging, monitoring, alerting, backup verification, recovery procedures, and release evidence.
+
+Phase 4 — Measure and Improve Performance
+
+Establish baseline metrics, identify actual bottlenecks, and implement proportionate optimizations.
+
+Phase 5 — Validate Growth Readiness
+
+Run representative load tests, verify capacity limits, test failure scenarios, and confirm recovery behavior.
+
+Phase 6 — Continuous Improvement
+
+Review incidents, vulnerabilities, user feedback, infrastructure costs, capacity, and changes in provider requirements.
+
+Prioritize improvements using measured risk and business impact.
+
+23. Definition of Done
+
+A requirement is complete only when:
+
+- Its applicability has been assessed.
+- The relevant implementation exists.
+- Required tests have been executed.
+- Results have been recorded.
+- Material defects have been addressed or formally accepted.
+- Required human approval has been obtained.
+- Operational ownership is clear.
+- Relevant documentation is current.
+
+Publishing this document does not prove that MOJAD GOOS has implemented these controls or achieved any particular capacity, uptime, security certification, or recovery target.
+
+

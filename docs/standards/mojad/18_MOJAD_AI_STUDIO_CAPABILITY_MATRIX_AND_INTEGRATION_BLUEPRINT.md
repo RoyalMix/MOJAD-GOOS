@@ -373,4 +373,421 @@ Where applicable, contracts should define:
 
 Job discovery: user request → AI intent understanding → Opportunity Engine search and matching → ranked results → user review → authorized application workflow.
 
-Business promotion: content preparation in Studio → user review and approval → authorized publishing to a relevant business module → measurable engage
+Business promotion: content preparation in Studio → user review and approval → authorized publishing to a relevant business module → measurable engagement and opportunity outcomes.
+
+Investment discovery: AI-assisted needs analysis → relevant opportunity or investor search → presentation of results and limitations → user-controlled contact or funding inquiry.
+
+Learning and skills: user goal → course or learning opportunity discovery → learning workflow → evidence-based skill or completion record where supported.
+
+These are reference workflows. Their production availability must be confirmed through the capability audit.
+
+12. Shared Platform Services
+
+Assess whether the following shared services already exist and whether they can support the target architecture.
+
+Service| Required responsibility
+Identity service| Authentication, session lifecycle, and account recovery
+Authorization service| Role, resource, and action-level permission enforcement
+AI gateway| Controlled access to approved AI providers
+File/media service| Secure uploads, storage, processing, and delivery
+Job orchestration| Queues, processing status, retries, and failure handling
+Notification service| Authorized email, push, or in-app notifications where supported
+Messaging/realtime service| Secure conversations, rooms, and live interaction
+Opportunity interface| Shared access to existing Opportunity Engine functionality
+Payment integration| Verified supported payment lifecycle and reconciliation
+Audit/observability| Logs, metrics, traces, and security-relevant events
+Policy and quota service| Usage limits, eligibility, abuse controls, and action policies
+Configuration/secrets service| Environment-specific configuration and secret protection
+
+This table is a target assessment list, not a requirement to build twelve separate services. A modular monolith or a smaller set of well-defined services may be more appropriate at the current scale. Choose architecture based on verified needs, team capacity, risk, and operational cost.
+
+13. Pi Network Integration Verification
+
+All Pi-related features must be evaluated against applicable official Pi Network documentation and the actual implementation.
+
+For each proposed integration, record:
+
+- Official documentation or source reviewed.
+- Supported application and environment requirements.
+- Authentication or permission model.
+- Relevant API or SDK version.
+- Data and transaction flow.
+- Test results and limitations.
+- Required human approvals.
+- Current capability status.
+
+13.1 Pi Capability Categories
+
+Assess separately:
+
+- Pi authentication or identity-related integration.
+- Supported Pi payment flows.
+- Wallet-related user experience.
+- Pi Browser compatibility where relevant.
+- Developer SDK or API use.
+- Payment verification and reconciliation.
+- Rewards or referrals that use Pi, if implemented.
+- Other proposed Pi services.
+
+Do not infer that one Pi integration automatically enables another.
+
+13.2 Financial Safety
+
+For payments, payroll, escrow, funding, rewards, or conversion claims:
+
+- Verify the supported transaction lifecycle.
+- Validate transaction identifiers and authoritative status.
+- Prevent duplicate fulfillment and replay.
+- Reconcile transaction records.
+- Handle pending, failed, cancelled, and unknown outcomes.
+- Protect production credentials.
+- Keep demonstrations separate from live transactions.
+- Obtain appropriate human and compliance review.
+
+Do not claim instant fiat-to-Pi conversion, universal Pi payment acceptance, escrow, or payroll unless the exact functionality is supported, implemented, authorized, and verified.
+
+14. Security and Trust Integration
+
+DOC 17 is the governing architecture for security and trust controls.
+
+This blueprint requires assessment of:
+
+- Authentication and secure session management.
+- Object-level and function-level authorization.
+- Role and tenant isolation.
+- Secrets management.
+- AI tool allowlists and execution restrictions.
+- Prompt-injection defenses and untrusted file handling.
+- File upload and media-processing safety.
+- Privacy and retention controls.
+- Abuse detection and rate limiting.
+- Payment integrity where applicable.
+- Security monitoring and incident response.
+- Backup restoration and recovery.
+- Human approval for high-impact operations.
+
+Security tests must include unauthorized scenarios, not only successful user journeys.
+
+A capability must not be enabled in production if a critical security defect or required approval remains unresolved.
+
+15. Data Contracts and Integration Standards
+
+Every significant internal or external integration should have a documented contract.
+
+Contracts should define:
+
+- Purpose and ownership.
+- Inputs and outputs.
+- Authentication and authorization.
+- Validation rules.
+- Error and retry behavior.
+- Rate and resource limits.
+- Data classification and privacy requirements.
+- Versioning and compatibility.
+- Monitoring and audit events.
+- Acceptance tests.
+
+Where suitable, use stable identifiers, explicit schemas, consistent error structures, idempotency for sensitive mutations, and traceable request IDs.
+
+Do not introduce an event bus, microservice framework, or new integration technology solely because it is fashionable. Record the requirement it solves and the operational cost it introduces.
+
+16. Data and Storage Assessment
+
+Inventory the actual data stores, schemas, and ownership boundaries.
+
+For each relevant data entity, record:
+
+- Data purpose.
+- System of record.
+- Owning module or service.
+- Data sensitivity.
+- Access-control requirements.
+- Creation and update rules.
+- Retention and deletion policy.
+- Relationships to other records.
+- Backup and recovery requirements.
+- Migration risks.
+
+Avoid unnecessary duplication of users, opportunities, media metadata, transactions, reputation records, or application state.
+
+If duplication is necessary for performance or reliability, define synchronization rules and identify the authoritative source.
+
+17. Scalability, Performance, and Cost
+
+Scalability must be demonstrated through measured behavior and explicit assumptions.
+
+Assess:
+
+- Expected active and concurrent users.
+- Requests per second for important endpoints.
+- AI requests per user and per workflow.
+- Media generation and processing duration.
+- Queue throughput and backlog behavior.
+- Storage growth and delivery costs.
+- Database capacity and query performance.
+- External provider quotas and service limits.
+- Realtime connection capacity where applicable.
+- Failure and recovery behavior during load.
+
+Establish realistic test scenarios and agreed performance targets before testing.
+
+Potential controls include bounded concurrency, fair queue scheduling, caching of suitable data, background processing, database indexing, timeouts, circuit breakers, and usage quotas.
+
+Do not promise support for millions of users or global-scale workloads without evidence from appropriate testing and operational measurements.
+
+18. Observability and Operational Readiness
+
+Every production capability should provide enough information to detect and investigate failures without exposing secrets or unnecessary personal data.
+
+Assess whether monitoring covers:
+
+- Request success and failure rates.
+- Latency and resource use.
+- Authentication and authorization failures.
+- AI provider availability, latency, and costs.
+- Media job completion and failure rates.
+- Queue depth and retry patterns.
+- Upload, storage, and download failures.
+- Payment reconciliation errors.
+- Security alerts and administrative actions.
+- Deployment health and rollback events.
+
+Assign operational ownership and define how incidents are escalated.
+
+19. Prioritization Framework
+
+Rank missing capabilities according to:
+
+1. Security, privacy, and legal risk.
+2. Financial integrity and potential user harm.
+3. Dependencies required by other capabilities.
+4. Direct contribution to opportunity discovery and completion.
+5. Reliability and user experience.
+6. Expected usage and business value.
+7. Implementation complexity and operating cost.
+8. Evidence quality and readiness.
+
+Priority levels
+
+- P0 — Critical: required to address a critical security, privacy, financial, or data-integrity risk before affected production functionality can be enabled.
+- P1 — Foundational: needed for secure integration or core workflows.
+- P2 — High value: important capability with acceptable dependencies and risk.
+- P3 — Enhancement: useful but not required for the current release.
+- P4 — Future research: exploratory capability requiring further evidence or business justification.
+
+Priority must be justified by the actual audit findings. A feature is not P0 merely because it sounds important, and a missing P0 control cannot be deferred solely to accelerate delivery.
+
+20. Dependency and Delivery Planning
+
+For each proposed implementation, document:
+
+- Capability IDs affected.
+- Existing components to reuse.
+- Required interfaces and data contracts.
+- Upstream and downstream dependencies.
+- Security and privacy review requirements.
+- Test requirements.
+- External provider dependencies.
+- Cost or quota implications.
+- Rollback and recovery approach.
+- Required approvals.
+- Definition of done.
+
+Prefer vertical slices that deliver a complete, testable user outcome rather than implementing many disconnected infrastructure components at once.
+
+Example vertical slice:
+
+1. User authenticates.
+2. User requests a relevant opportunity through MOJAD AI.
+3. AI invokes the authorized Opportunity Engine interface.
+4. Results are returned with appropriate access controls.
+5. The request is logged safely.
+6. Failure and unauthorized-access cases are tested.
+7. The workflow is documented with evidence.
+
+A later slice may add Studio-generated content to an opportunity workflow after file safety, publishing permissions, and rights/consent requirements have been assessed.
+
+21. Testing and Acceptance Framework
+
+Testing must reflect the actual implementation and risk.
+
+21.1 Static and Build Checks
+
+Where supported, run dependency checks, linting, type checking, static analysis, and production builds.
+
+21.2 Unit and Integration Tests
+
+Test business logic, schemas, authorization rules, provider adapters, job state transitions, and failure handling.
+
+21.3 End-to-End Tests
+
+Test important user journeys from the interface through backend services to the resulting stored state or verified external action.
+
+21.4 Security Tests
+
+Test authentication, resource ownership, role boundaries, rate limits, secret handling, upload safety, AI tool restrictions, and sensitive state transitions.
+
+21.5 Reliability and Performance Tests
+
+Test timeouts, provider outages, retries, duplicate requests, queue backlogs, storage errors, concurrency, and recovery where relevant.
+
+21.6 Pi Integration Tests
+
+Use supported test environments and documented integration procedures. Do not use production funds or real sensitive user data for routine testing.
+
+21.7 Regression Tests
+
+Verify that integration work has not broken existing Opportunity Engine behavior or unrelated MOJAD modules.
+
+Every test report must record what was run, the environment, the result, relevant evidence, known limitations, and unresolved defects.
+
+22. Implementation Roadmap
+
+Phase A — Read-only Baseline Audit
+
+- Confirm the canonical repository and relevant branch.
+- Inventory modules, routes, services, schemas, APIs, configuration, and tests.
+- Identify existing AI, Studio, file, messaging, Pi, and Opportunity Engine functionality.
+- Classify capabilities using Section 5.
+- Record evidence, known failures, and uncertainties.
+- Do not modify application code during this phase.
+
+Exit criteria: a reviewed baseline inventory with evidence references and identified unknowns.
+
+Phase B — Capability and Risk Review
+
+- Complete detailed capability records.
+- Review DOC 17 security requirements.
+- Identify duplicate implementations and opportunities for reuse.
+- Assess data ownership, API boundaries, costs, and external dependencies.
+- Prioritize gaps and record architectural decisions.
+
+Exit criteria: approved capability matrix, risk register, and prioritized gap list.
+
+Phase C — Interface and Integration Design
+
+- Define AI gateway and tool contracts.
+- Define Studio job and file workflows.
+- Document Opportunity Engine integration.
+- Define shared identity, authorization, storage, and audit requirements.
+- Document supported Pi integration boundaries.
+- Define acceptance criteria and rollback plans.
+
+Exit criteria: reviewed integration design and implementation-ready tasks.
+
+Phase D — Foundational Risk Remediation
+
+- Address critical authentication, authorization, secret, privacy, financial-integrity, and recovery risks.
+- Preserve existing functionality.
+- Add or repair tests for affected behavior.
+- Record exceptions and approvals.
+
+Exit criteria: critical blockers resolved or affected capabilities safely disabled.
+
+Phase E — Incremental Implementation
+
+- Implement approved vertical slices.
+- Reuse existing components where suitable.
+- Keep external integrations behind explicit interfaces.
+- Use feature flags or equivalent controls where appropriate.
+- Add tests and evidence with each change.
+
+Exit criteria: implementation meets its documented acceptance criteria in the target test environment.
+
+Phase F — Release Verification
+
+- Run applicable build, regression, security, integration, and performance tests.
+- Verify the actual deployed release.
+- Check operational monitoring and recovery.
+- Complete release evidence and obtain approvals.
+
+Exit criteria: a documented PASS decision for the defined release scope.
+
+Phase G — Continuous Improvement
+
+- Monitor errors, costs, abuse, incidents, and user outcomes.
+- Reassess provider and platform changes.
+- Update capability statuses and architecture records.
+- Reprioritize work based on evidence.
+
+Exit criteria: ongoing ownership and a repeatable review cycle.
+
+23. Required Deliverables
+
+The work governed by this blueprint should produce, as applicable:
+
+1. Capability inventory and evidence matrix.
+2. Detailed capability records.
+3. Prioritized gap and risk register.
+4. System context and data-flow diagrams.
+5. AI provider and agent/tool registry.
+6. Studio media and file workflow specifications.
+7. Opportunity Engine interface documentation.
+8. Shared identity and authorization matrix.
+9. Pi integration verification matrix.
+10. API and data contracts.
+11. Test plan and test results.
+12. Deployment and recovery plan.
+13. Release evidence record.
+14. Architecture decision records.
+15. Updated operational documentation.
+
+These deliverables should be version-controlled using the repository's established documentation structure.
+
+24. Governance and Change Control
+
+- All implementation work must follow the repository's approved workflow.
+- Architecture-changing decisions must be recorded with context, alternatives, rationale, and consequences.
+- Destructive changes require review, a recovery plan, and explicit authorization.
+- Production secrets and sensitive personal data must never be committed to documentation or source control.
+- Documentation updates must not be presented as proof that implementation is complete.
+- Existing behavior must not be removed without impact analysis and approval.
+- Exceptions require a named owner, risk description, mitigation, expiry or review date, and authorized approval.
+- Security-critical and legally required controls cannot be waived by ordinary project convenience.
+
+25. Required Capability Matrix Output
+
+The completed audit should maintain a machine-readable or structured table with at least these fields:
+
+Field| Description
+Capability ID| Stable identifier
+Capability name| Clear feature or service name
+Status| One of the defined capability statuses
+Evidence references| Source, tests, runtime, integration, operations, or governance evidence
+Owner| Responsible role or person
+Dependencies| Required components or external services
+Risk| Security, privacy, financial, reliability, or delivery risk
+Priority| P0 through P4
+Next action| Verify, fix, integrate, design, defer, or remove with approval
+Acceptance criteria| Measurable completion requirements
+Last reviewed| Date of latest evidence review
+
+Where possible, store structured machine-readable data separately from the explanatory document so tooling can validate and compare it. Do not introduce a new format or system unless the team can maintain it.
+
+26. Definition of Done
+
+DOC 18 is ready for governance approval when:
+
+- Its relationship to DOC 17 and the existing MOJAD standards is reviewed.
+- The capability status model and evidence requirements are agreed.
+- The audit scope and owners are assigned.
+- The existing Opportunity Engine is explicitly protected from unnecessary rebuilding.
+- MOJAD AI and MOJAD STUDIO boundaries are documented.
+- Security, privacy, Pi integration, scalability, and testing requirements are clear.
+- The roadmap has explicit exit criteria.
+- The canonical document is stored in version control.
+- The team understands that this document defines an assessment and integration process, not proof of completed features.
+
+A specific implementation is complete only when its acceptance criteria pass, the evidence is recorded, relevant risks are addressed, and required approvals are obtained.
+
+---
+
+Governance Note
+
+Status: Proposed Standard — Requires Review and Approval
+Canonical Path: "docs/standards/mojad/18_MOJAD_AI_STUDIO_CAPABILITY_MATRIX_AND_INTEGRATION_BLUEPRINT.md"
+Suggested Commit Message: "docs(mojad): add AI Studio capability matrix and integration blueprint v1.0"
+
+This document defines the capability assessment and integration blueprint. It does not claim that any unverified feature, security control, external integration, or scalability target is already implemented.
+
+Required next action: perform the read-only baseline audit, complete the capability matrix with evidence, review the findings, and approve the implementation priorities before modifying application code.

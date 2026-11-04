@@ -443,7 +443,3 @@ before implementation:
 These are documentation starting points, not proof that a model, price,
 feature or account entitlement is available. Verify before
 implementation.
-
-------------------------------------------------------------------------
-
-**End of DOC 20 --- MOJAD HYBRID AI ORCHESTRATION STANDARD**
